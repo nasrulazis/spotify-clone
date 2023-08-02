@@ -1,0 +1,61 @@
+/* Add this CSS in a separate CSS file or in a style tag if you're using inline styles */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: #117088;
+    padding: 0 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+.profile-container {
+    position: relative;
+}
+
+.profile-icon {
+    cursor: pointer;
+    padding: 8px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.profile-img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.profile-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+}
+
+.profile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-menu li {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-menu li:last-child {
+    border-bottom: none;
+}
