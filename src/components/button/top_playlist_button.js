@@ -1,19 +1,20 @@
 const TopPlaylistButton = ({ playlistTitle, onClick,imageUrl }) => {
     return (
     <div
-        style={{
-            backgroundColor: '#313131',
-            padding: '15px 40px',
-            borderRadius: '10px',
-            border: 'none',
-            cursor: 'pointer',
-            margin:'30px 30px',
-            padding:'0px',
-            display:'flex',
-            justifyContent:'flex-start',
-            alignItems:'center',
-            width:'470px',
-        }}
+        // style={{
+        //     backgroundColor: '#313131',
+        //     padding: '15px 40px',
+        //     borderRadius: '10px',
+        //     border: 'none',
+        //     cursor: 'pointer',
+        //     margin:'30px 30px',
+        //     padding:'0px',
+        //     display:'flex',
+        //     justifyContent:'flex-start',
+        //     alignItems:'center',
+        //     width:'470px',
+        // }}
+        
         onClick={onClick}
     >
         <img src={imageUrl} alt="" 

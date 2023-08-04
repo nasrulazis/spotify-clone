@@ -1,19 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/navbar/navbar';
-import Hero from './components/hero/hero';
-import TopPlaylist from './components/top_playlist/top_playlist';
-import Playlist from './components/playlist/playlist';
+import { BrowserRouter, Route, Routes, Switch  } from 'react-router-dom';
+import Homepage from './pages/homepage/homepage';
+import Login from './pages/login';
+import Auth from './pages/auth';
 
 function App() {
   return (
-    <div style={{ backgroundColor: '#191414' }}>
-      <Navbar />
-      <Hero />
-      <TopPlaylist/>
-      <Playlist/>
-      {/* Your app content goes here */}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/homepage" element={<Homepage/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

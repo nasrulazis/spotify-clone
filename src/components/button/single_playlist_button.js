@@ -1,47 +1,20 @@
+import {Icon} from '@shopify/polaris';
+import {PlayMajor} from '@shopify/polaris-icons';
 const SinglePlaylistButton = ({ playlistTitle,playlistSubTitle, onClick,imageUrl }) => {
     return (
-    <div
-        style={{
-            backgroundColor: '#313131',
-            padding: '15px 40px',
-            borderRadius: '10px',
-            border: 'none',
-            cursor: 'pointer',
-            margin:'30px 30px',
-            padding:'20px',
-            display:'flex',
-            flexDirection:'column',
-            justifyContent:'flex-start',
-            alignItems:'center',
-            width:'250px',
-        }}
-        onClick={onClick}
-    >
-        <img src={imageUrl} alt="" 
-        style={{
-            width: '200px',
-            height: '200px',
-            borderRadius:'5px ',
-        }}/>
-        <h1
-        style={{
-            fontWeight:500,
-            fontSize:'20px',
-            color:'white',
-            padding:'20px 8px',
-            width:'100%',
-            
-        }}
-        >{playlistTitle}</h1>
-        <p
-        style={{
-            fontSize:'16px',
-            color:'grey',
-            padding:'0px 8px',
-            width:'100%',
-            
-        }}
-        >{playlistSubTitle}</p>
+    <div className="bg-[#252222] px-4 py-4 mx-3 my-2 rounded-lg cursor-pointer flex-col justify-center items-center w-[210px] h-80 hover:bg-[#313131] duration-300" >
+        <div className="relative group">
+
+            <img src={imageUrl} alt="" className="w-[200px] m-0 h-[160px] rounded-lg object-cover  group-hover:opacity-50"/>
+            <button className=" bg-white/80 text-white py-2 h-[50px] px-4 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100" onClick={onClick}>
+            <Icon source={PlayMajor} color="Gray-100"/>
+            </button>
+        </div>
+        
+        {playlistTitle.length<27&&<h1 className="font-bold text-xl text-gray-200 px-2 py-2">{playlistTitle}</h1>}
+        {playlistTitle.length>=27&&<h1 className="font-bold text-xl text-gray-200 px-2 py-2">{playlistTitle.substring(0, 21)}...</h1>}
+        {playlistSubTitle.length>40&&<p className="text-sm px-2 text-gray-400">{playlistSubTitle.substring(0, 40)}...</p>}
+        {playlistSubTitle.length<=40&&<p className="text-sm px-2 text-gray-400">{playlistSubTitle}</p>}
     </div>
     );
 };

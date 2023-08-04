@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     background: rgb(25,20,20);
-    background: linear-gradient(0deg, rgba(25,20,20,1) 6%, rgba(31,76,88,1) 62%, rgba(17,112,136,1) 100%);
+    background: linear-gradient(0deg, #191414 6%, #1f4c58 62%, #117088 100%);
 }
 .hero-container {
     display: flex;
@@ -12,7 +12,7 @@
     width: 60%;
     padding: 20px 0px;
     margin: 20px 50px;
-    background-color: rgb(133, 196, 221);
+    background-color: #85c4dd;
     border-radius: 4px;
 }
 .image-container {
