@@ -1,6 +1,5 @@
 import {useEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import { handleLogin } from "../../utils/auth";
 
 export default function Auth() {
     const isLoading = useRef(false);

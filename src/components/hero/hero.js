@@ -1,4 +1,3 @@
-import "./hero.css";
 import GreenButton from '../button/green_play_button';
 
 const Hero = ({ playlistSingle }) => {
@@ -8,7 +7,7 @@ const Hero = ({ playlistSingle }) => {
     return (
     <div className="flex items-center justify-center bg-gradient-to-t from-[#191414] to-[#117088] ">
         <div className="flex items-center justify-center w-2/3 p-6 bg-[#0a0a0a] rounded-sm">
-            <div className="w-[300px] flex justify-center items-center mr-4">
+            <div className="w-[300px] h-max flex justify-center items-center mr-4">
                 <img src={playlistSingle.images[0].url} alt="Hero" className="w-100 m-0" />
             </div>
             <div className="w-full h-[250px] flex flex-col items-start justify-around">

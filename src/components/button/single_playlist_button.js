@@ -10,7 +10,8 @@ const SinglePlaylistButton = ({ playlistTitle,playlistSubTitle, onClick,imageUrl
             <Icon source={PlayMajor} color="Gray-100"/>
             </button>
         </div>
-        
+        {/* <h1 className="font-bold text-xl text-gray-200 px-2 py-2">{playlistTitle}</h1>
+        <p className="text-sm px-2 text-gray-400">{playlistSubTitle}</p> */}
         {playlistTitle.length<27&&<h1 className="font-bold text-xl text-gray-200 px-2 py-2">{playlistTitle}</h1>}
         {playlistTitle.length>=27&&<h1 className="font-bold text-xl text-gray-200 px-2 py-2">{playlistTitle.substring(0, 21)}...</h1>}
         {playlistSubTitle.length>40&&<p className="text-sm px-2 text-gray-400">{playlistSubTitle.substring(0, 40)}...</p>}

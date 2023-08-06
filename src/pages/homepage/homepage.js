@@ -9,7 +9,7 @@ const Homepage=()=>{
     const [featuredPlaylist, setFeaturedPlaylist] = useState(null);
     const [newRealeases, setNewRealeases] = useState(null);
     const [heroPlaylist, setHeroPlaylist] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [searchData, setSearchData] = useState([]);
 
     const handleBanner = async (e)=> {
         const accessToken = localStorage.getItem('token');
@@ -22,7 +22,6 @@ const Homepage=()=>{
         })
         .then((data) => {
             setHeroPlaylist(data)
-            setLoading(false)
         })
         .catch((error) => {
             console.log(error)
@@ -30,7 +29,7 @@ const Homepage=()=>{
     }
     const handleFeatured = async (e)=> {
         const accessToken = localStorage.getItem('token');
-        const searchEndpoint = `https://api.spotify.com/v1/browse/featured-playlists?limit=6`;
+        const searchEndpoint = `https://api.spotify.com/v1/browse/featured-playlists?country=ID&limit=6`;
         await fetch(searchEndpoint, {
             headers: { Authorization: `Bearer ${accessToken}` },
         })
@@ -39,8 +38,6 @@ const Homepage=()=>{
         })
         .then((data) => {
             setFeaturedPlaylist(data.playlists.items);
-            setLoading(false)
-            
         })
         .catch((error) => {
             console.log(error)
@@ -57,14 +54,20 @@ const Homepage=()=>{
         })
         .then((data) => {
             setNewRealeases(data.playlists.items);
-            setLoading(false)
             
         })
         .catch((error) => {
             console.log(error)
         });
     }
-    
+    const getData = (data) =>{
+        
+        setSearchData(data)
+    }
+    useEffect(()=>{
+        searchData.length>0?console.log('data'+ searchData):console.log('null')
+        
+    },[searchData])
     useEffect(() => {
         
 
@@ -77,15 +80,15 @@ const Homepage=()=>{
         return <div>Loading...</div>;
     }
     console.log("___"+heroPlaylist)
-
     return( 
     <div className='flex bg-black p-2'>
         <LeftNavbar/>
-        <div className='bg-[#191414] rounded-2xl' >
-            <Navbar />
-            <Hero playlistSingle={heroPlaylist}/>
-            <TopPlaylist dataPlaylist={featuredPlaylist}/>
-            <Playlist dataPlaylist={newRealeases}/>
+        <div className='bg-[#191414] rounded-2xl w-4/5' >
+            {searchData.length>0?<Navbar backgroundColor='#fff' onChange={getData}/>:<Navbar onChange={getData}/>}
+            {searchData.length>0?null:<Hero playlistSingle={heroPlaylist}/>}
+            {searchData.length>0?null:<TopPlaylist dataPlaylist={featuredPlaylist}/>}
+            {searchData.length>0?<Playlist titleSection='All Results' dataPlaylist={searchData}/>:<Playlist titleSection='All Playlist' dataPlaylist={newRealeases}/>}
+            
         </div>
     </div>
     )
